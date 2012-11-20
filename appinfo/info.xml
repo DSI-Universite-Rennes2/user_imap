@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<info>
+       <id>user_imap</id>
+       <name>IMAP user backend</name>
+       <description>Authenticate Users by IMAP</description>
+       <licence>AGPL</licence>
+       <author>Bruno MATHIEU &lt;bruno@ahennezel.info&gt;</author>
+       <require>4</require>
+       <shipped>false</shipped>
+       <types>
+       </types>
+</info>
