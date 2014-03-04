@@ -20,7 +20,7 @@
  * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-$params = array('imap_host', 'imap_port', 'imap_ssl');
+$params = array('imap_host', 'imap_port', 'imap_ssl_novalidate');
 
 OCP\Util::addscript('user_imap', 'settings');
 
@@ -29,7 +29,7 @@ if ($_POST) {
                if(isset($_POST[$param])){
                        OCP\Config::setAppValue('user_imap', $param, $_POST[$param]);
                }
-               elseif('imap_ssl' == $param) {
+               elseif('imap_ssl_novalidate' == $param) {
                        // unchecked checkboxes are not included in the post paramters
                        OCP\Config::setAppValue('user_imap', $param, 0);
                }

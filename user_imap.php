@@ -28,12 +28,12 @@ class OC_USER_IMAP extends OC_User_Backend {
        // cached settings
         protected $imap_host;
         protected $imap_port;
-        protected $imap_ssl;
+        protected $imap_ssl_novalidate;
 
        public function __construct() {
                 $this->imap_host = OCP\Config::getAppValue('user_imap', 'imap_host','');
                 $this->imap_port = OCP\Config::getAppValue('user_imap', 'imap_port', OC_USER_BACKEND_IMAP_DEFAULT_PORT);
-                $this->imap_ssl = OCP\Config::getAppValue('user_imap', 'imap_ssl', false);
+                $this->imap_ssl_novalidate = OCP\Config::getAppValue('user_imap', 'imap_ssl_novalidate', false);
        }
 
        /**
@@ -51,7 +51,7 @@ class OC_USER_IMAP extends OC_User_Backend {
                 try
                 {
                        $url = $this->imap_host.":".$this->imap_port;
-                       if ($this->imap_ssl) {
+                       if ($this->imap_ssl_novalidate) {
 		               $url .= "/imap/ssl/notls/novalidate-cert";
                                error_log("========= $url ====");
                        }
